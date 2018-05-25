@@ -139,7 +139,8 @@ def train(num_training_iterations, report_interval):
 
   # Train.
   with tf.train.SingularMonitoredSession(
-      hooks=hooks, checkpoint_dir=FLAGS.checkpoint_dir) as sess:
+      hooks=hooks, checkpoint_dir=FLAGS.checkpoint_dir
+  ) as sess:
 
     start_iteration = sess.run(global_step)
     total_loss = 0

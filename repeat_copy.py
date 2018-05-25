@@ -184,7 +184,8 @@ class RepeatCopy(snt.AbstractModule):
       norm_max=10,
       log_prob_in_bits=False,
       time_average_cost=False,
-      name='repeat_copy',):
+      name='repeat_copy'
+  ):
     """Creates an instance of RepeatCopy task.
 
     Args:
@@ -386,7 +387,7 @@ class RepeatCopy(snt.AbstractModule):
 
   def to_human_readable(self, data, model_output=None, whole_batch=False):
     obs = data.observations
-    unnormalised_num_reps_flag = self._unnormalise(obs[:,:,-1:]).round()
-    obs = np.concatenate([obs[:,:,:-1], unnormalised_num_reps_flag], axis=2)
+    unnormalised_num_reps_flag = self._unnormalise(obs[:, :, -1:]).round()
+    obs = np.concatenate([obs[:, :, :-1], unnormalised_num_reps_flag], axis=2)
     data = data._replace(observations=obs)
     return bitstring_readable(data, self.batch_size, model_output, whole_batch)

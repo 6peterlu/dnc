@@ -141,7 +141,7 @@ class MemoryAccess(snt.RNNCore):
         values=inputs['write_vectors'])
 
     linkage_state = self._linkage(write_weights, prev_state.linkage)
-
+    
     # Read from memory.
     read_weights = self._read_weights(
         inputs,
